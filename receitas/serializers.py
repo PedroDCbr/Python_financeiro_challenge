@@ -1,14 +1,10 @@
 from rest_framework import serializers
-from .models import Despesas
+from .models import Receitas
 
 
-class DespesaSerializer(serializers.ModelSerializer):
+class ReceitasSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = Despesas
-        fields = '__all__'
+        model = Receitas
+        exclude = []
 
-
-class ListaDespesasPorAnoEMesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Despesas
-        fields = '__all__'

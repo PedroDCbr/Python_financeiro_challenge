@@ -40,10 +40,3 @@
     <li>Saldo final do mês</li>
     <li>Valor total gasto por catedoria de despesas no mês</li>
 </ul>
-<h3><strong>Semana 3 e 4</strong></h3>
-<p>Adcionado sistema de autenticação e criação de usuarios</p>
-<ul>
-<p>Atribuição de usuarios autenticados</p>
-    <li>Ler, adcionar e modificar, receitas e despesas</li>
-</ul>
-<p>Deploy da Api utilizando <a href="https://financeiro-challenge.herokuapp.com/">Heroku</a></p>

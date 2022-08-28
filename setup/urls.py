@@ -1,21 +1,21 @@
-"""setup URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from receitas.views import ReceitasViewSet, ListaReceitasPorData
+from despesas.views import DespesasViewSet, ListaDespesasPorData
+from resumo.views import Resumo
+from usuarios.views import UsuarioViewSet
+
+router = routers.DefaultRouter()
+router.register('receitas', ReceitasViewSet, basename='receitas')
+router.register('despesas', DespesasViewSet, basename='despesas')
+router.register('usuario', UsuarioViewSet, basename='usuario')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('despesas/<int:ano>/<int:mes>', ListaDespesasPorData.as_view()),
+    path('receitas/<int:ano>/<int:mes>', ListaReceitasPorData.as_view()),
+    path('resumo/<str:ano>/<str:mes>', Resumo.as_view()),
 ]
