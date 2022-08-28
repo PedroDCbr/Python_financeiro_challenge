@@ -48,3 +48,4 @@
 <p>Atribuição de usuarios autenticados</p>
     <li>Ler, adcionar e modificar, receitas e despesas</li>
 </ul>
+<p>Deploy da Api utilizando <a href="https://financeiro-challenge.herokuapp.com/">Heroku</a></p>
