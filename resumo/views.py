@@ -1,9 +1,13 @@
 from rest_framework import views, response
 from receitas.models import Receitas
 from despesas.models import Despesas
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
+from rest_framework.authentication import BasicAuthentication
 
 
 class Resumo(views.APIView):
+    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+    authentication_classes = [BasicAuthentication]
 
     def get_saldo_mes(self, ano, mes):
         receita_mes = self.get_receita_mes(ano, mes)
