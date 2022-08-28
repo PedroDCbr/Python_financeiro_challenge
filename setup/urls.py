@@ -4,12 +4,10 @@ from rest_framework import routers
 from receitas.views import ReceitasViewSet, ListaReceitasPorData
 from despesas.views import DespesasViewSet, ListaDespesasPorData
 from resumo.views import Resumo
-from usuarios.views import UsuarioViewSet
 
 router = routers.DefaultRouter()
 router.register('receitas', ReceitasViewSet, basename='receitas')
 router.register('despesas', DespesasViewSet, basename='despesas')
-router.register('usuario', UsuarioViewSet, basename='usuario')
 
 
 urlpatterns = [

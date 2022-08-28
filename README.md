@@ -13,7 +13,6 @@
 </ul>  
 <h3>Métodos aplicados</h3>
 <p>Projeto em Linguagem Python com Django Rest Framework</p>
-<p>Database com Postgre SQL</p>
 
 <h3><strong>Semana 1</strong></h3>
 <p>Criando banco de dados de Receitas e Despesas</p>
@@ -39,4 +38,13 @@
     <li>Valor total das despesas do mês</li>
     <li>Saldo final do mês</li>
     <li>Valor total gasto por catedoria de despesas no mês</li>
+</ul>
+<h3><strong>Semana 3 e 4</strong></h3>
+<p>Adcionado sistema de autenticação e criação de usuarios</p>
+<ul>
+    <li>Com <strong><em>Django.contrib.auth.models.User</em></strong></li>
+</ul>
+<ul>
+<p>Atribuição de usuarios autenticados</p>
+    <li>Ler, adcionar e modificar, receitas e despesas</li>
 </ul>

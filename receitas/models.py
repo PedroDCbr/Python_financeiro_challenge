@@ -1,9 +1,9 @@
 from django.db import models
-from usuarios.models import Usuario
+from django.contrib.auth.models import User
 
 
 class Receitas(models.Model):
-    usuario = models.ForeignKey(Usuario, related_name='receitas', on_delete=models.CASCADE, default='', null=True, blank=True)
+    usuario = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
     descricao = models.CharField(max_length=200)
     valor = models.DecimalField(max_digits=50, decimal_places=2)
     data = models.DateField(blank=False, null=False)

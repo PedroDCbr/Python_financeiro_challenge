@@ -2,7 +2,6 @@ from rest_framework import viewsets, generics
 from .models import Despesas
 from .serializers import DespesaSerializer, ListaDespesasPorAnoEMesSerializer
 
-
 class DespesasViewSet(viewsets.ModelViewSet):
     """Exibindo todas as Despesas"""
     queryset = Despesas.objects.all()
