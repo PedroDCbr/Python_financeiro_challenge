@@ -1,4 +1,4 @@
-# aluraChallenge_BkEnd_04
+# financeiro-challenge
 #alurachallengebackend4
 
 <h3>Introdução do Challenge</h3>
@@ -49,3 +49,8 @@
     <li>Ler, adcionar e modificar, receitas e despesas</li>
 </ul>
 <p>Deploy da Api utilizando <a href="https://financeiro-challenge.herokuapp.com/">Heroku</a></p>
+<p><strong><em>Acesso de usuário</em></strong></p>
+<ul>
+<li><p>Login: Usuario</p></li>
+<li>Senha: u123456u</li>
+</ul>
