@@ -1,13 +1,11 @@
 from rest_framework import views, response
+from .models import Resumo
 from receitas.models import Receitas
 from despesas.models import Despesas
-from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
-from rest_framework.authentication import BasicAuthentication
 
 
 class Resumo(views.APIView):
-    permission_classes = [IsAuthenticated, DjangoModelPermissions]
-    authentication_classes = [BasicAuthentication]
+    queryset = Resumo.objects.all()
 
     def get_saldo_mes(self, ano, mes):
         receita_mes = self.get_receita_mes(ano, mes)
@@ -37,23 +35,23 @@ class Resumo(views.APIView):
 
     def get_categoria(self):
         return {
-            'Outros':0,
-            'Moradia':0,
-            'Transporte':0,
-            'Alimentação':0,
-            'Cartões':0,
-            'Educação':0,
-            'Saúde':0,
-            'Imprevistos':0,
-            'Lazer':0,
+            'Outros': 0,
+            'Moradia': 0,
+            'Transporte': 0,
+            'Alimentação': 0,
+            'Cartões': 0,
+            'Educação': 0,
+            'Saúde': 0,
+            'Imprevistos': 0,
+            'Lazer': 0,
         }
 
     def get_total_despesas_por_categoria(self, ano, mes):
         despesas = Despesas.objects.filter(data__contains=f'{ano}-{mes}')
-        categorias = self.get_categoria()
+        categoria = self.get_categoria()
         for cats in despesas:
-            categorias[cats.categoria] += cats.valor
-        return categorias
+            categoria[cats.categorias] += cats.valor
+        return categoria
 
     def get(self, request, ano, mes):
         receitas = self.get_receita_mes(ano, mes)
@@ -62,9 +60,9 @@ class Resumo(views.APIView):
         despeses_por_categoria = self.get_total_despesas_por_categoria(ano, mes)
         return response.Response(
             data={
-                'Total receitas': receitas,
-                'Total despesas': despesas,
-                'Saldo total': saldo_do_mes,
-                'Despesas por categoria': despeses_por_categoria
+                f'Total receitas de {mes}/{ano}': f'{receitas:.2f}',
+                f'Total despesas de {mes}/{ano}': f'{despesas:.2f}',
+                f'Saldo total de {mes}/{ano}': f'{saldo_do_mes:.2f}',
+                f'Despesas por categoria de de {mes}/{ano}': despeses_por_categoria
             }
         )
